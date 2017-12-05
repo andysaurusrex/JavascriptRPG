@@ -1,10 +1,3 @@
-// -- Character creation -- // 
-
-// Character name
-const name = prompt (`Greetings adventurer! What is your name>?`)
-
-// Character class
-let characterClass = prompt (`What is your character's starting class? (Warrior, Ranger, Rouge, Cleric, Wizard, Witch?)`);
 // Lowercase the character class for case sensitive checks
 let lowerCharacterClass = characterClass.toLowerCase();
 
@@ -35,3 +28,29 @@ switch (lowerCharacterClass){
         break;
 }
 
+// mainChar class with properties
+class mainChar {
+    constructor(name, race, attributes, equippedWeapon, equippedArmor, maxHealth, currentHealth){
+        this.name = name;
+        this.race = race;
+        this.attributes = attributes;
+        this. equippedWeapon;
+        this.equippedArmor;
+        this.maxHealth;
+        this.currentHealth;
+
+    }
+}
+
+// the base main character with base stats and name
+// const mainChar = {
+//     name: name,
+//     attributes: {
+//         strength: 0,
+//         finesse: 0,
+//         intelligence: 0,
+//         constitution: 0,
+//         wits: 0,
+
+//     }
+// }
