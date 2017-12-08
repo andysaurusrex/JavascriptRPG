@@ -28,7 +28,13 @@ class Hero extends BaseCharacter {
         this.name = name;
         this.race = race;
         this.characterRole = role;
-        this.attributes = attributes;
+        this.attributes = {
+            strength: 0,
+            finesse: 0,
+            intelligence: 0,
+            constitution: 0,
+            wits: 0,
+        };
 
         //-- Equipment -- //
         this.equippedWeapon = {
@@ -82,20 +88,18 @@ const checkClass = (hero, characterClass) => {
         case `witch`:
             hero.attributes.intelligence += 3;
             hero.attributes.wits += 2;
-            break;
-        
+            break;        
         default: 
             characterClass = prompt (`${characterClass} is not a valid option. Please choose one!`);
             hero.characterRole = characterClass;
             checkClass(hero, characterClass);
-        break;
+            break;
     }
 };
 
 // Checks race
 const checkRace = (hero, race) => {
     let lowerCharacterRace = race.toLowerCase();
-
     switch (lowerCharacterRace){
         case 'human':
             hero.attributes.strength ++;
@@ -109,12 +113,10 @@ const checkRace = (hero, race) => {
         case 'lizard':
             hero.attributes.finesse ++;
             break;
-
         default:
             race = prompt (`${race} is not a valid race. Please choose a valid option!`);
             hero.race = race;
             checkRace(hero, race);
             break;
     }
-
-}
+};
