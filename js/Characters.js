@@ -113,6 +113,9 @@ const checkRace = (hero, race) => {
         case 'lizard':
             hero.attributes.finesse ++;
             break;
+        case 'lalafell':
+            hero.attributes.wits ++;
+            break;
         default:
             race = prompt (`${race} is not a valid race. Please choose a valid option!`);
             hero.race = race;
