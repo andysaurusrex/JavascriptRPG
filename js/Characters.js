@@ -23,13 +23,14 @@ class BaseCharacter {
 
 // Hero class
 class Hero extends BaseCharacter {
-    constructor(name, health, race, gender, role){
+    constructor(name, health, gender, race, role){
         super(name, health);
         this.name = name;
         this.race = race;
         this.characterRole = role;
         this.attributes = attributes;
 
+        //-- Equipment -- //
         this.equippedWeapon = {
             name: `None`,
             minDamage: null,
@@ -39,6 +40,8 @@ class Hero extends BaseCharacter {
             name: `None`,
             armor: null
         };
+
+        //-- Health and Armor -- //
         this.armor = 0;
         this.maxArmor = 0;
         this.currentHealth = health;
@@ -48,7 +51,9 @@ class Hero extends BaseCharacter {
     };
 };
 
-// -- Attributes for character class -- //
+// -- Attributes for character class and race -- //
+
+// Checks class
 const checkClass = (hero, characterClass) => {
     let lowerCharacterClass = characterClass.toLowerCase();
 
@@ -72,7 +77,7 @@ const checkClass = (hero, characterClass) => {
             hero.attributes.constitution ++;
             hero.attributes.wits +=2;
             break;
-        // case will continue until break, this is the same is or in this instance
+        // case will continue until break, this is the same as or in this instance
         case `wizard`:
         case `witch`:
             hero.attributes.intelligence += 3;
@@ -86,3 +91,30 @@ const checkClass = (hero, characterClass) => {
         break;
     }
 };
+
+// Checks race
+const checkRace = (hero, race) => {
+    let lowerCharacterRace = race.toLowerCase();
+
+    switch (lowerCharacterRace){
+        case 'human':
+            hero.attributes.strength ++;
+            break;
+        case 'elf':
+            hero.attributes.intelligence ++;
+            break;
+        case 'dwarf':
+            hero.attributes.constitution ++;
+            break;
+        case 'lizard':
+            hero.attributes.finesse ++;
+            break;
+
+        default:
+            race = prompt (`${race} is not a valid race. Please choose a valid option!`);
+            hero.race = race;
+            checkRace(hero, race);
+            break;
+    }
+
+}
