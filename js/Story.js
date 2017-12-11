@@ -8,7 +8,7 @@ let characterRole = prompt (`What is your character's starting class? (Warrior, 
 
 const mainChar = new Hero (name, 10, gender, race, characterRole);
 
-checkClass(mainChar, mainChar.race);
+checkRace(mainChar, mainChar.race);
 checkClass(mainChar, mainChar.characterRole);
 
 console.log(mainChar);
