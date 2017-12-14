@@ -13,9 +13,28 @@ class BaseCharacter {
             persuade: 10
         };
 
+        // Skills
+
         this.skills = skills;
-                
     };
+
+    attack(){  
+        return Math.floor(Math.random() * 20) + 1 + this.skills.attack;
+    };
+
+    persuade(){
+        return Math.floor(Math.random() * 20) + 1 + this.skills.persuade;
+    };
+
+    sneak(){
+        return Math.floor(Math.random() * 20) + 1 + this.skills.sneak;
+    };
+
+    dealDamage(){
+        return Math.floor(Math.random() * (this.equippedWeapon.maxDamage - this.equippedWeapon.minDamage + 1)) + this.equippedWeapon.minDamage;
+    };
+
+
 };
 
 

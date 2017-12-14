@@ -12,3 +12,4 @@ checkRace(mainChar, mainChar.race);
 checkClass(mainChar, mainChar.characterRole);
 
 console.log(mainChar);
+
