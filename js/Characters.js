@@ -33,8 +33,6 @@ class BaseCharacter {
     dealDamage(){
         return Math.floor(Math.random() * (this.equippedWeapon.maxDamage - this.equippedWeapon.minDamage + 1)) + this.equippedWeapon.minDamage;
     };
-
-
 };
 
 
@@ -58,14 +56,41 @@ class Hero extends BaseCharacter {
             name: `None`,
             minDamage: null,
             maxDamage: null
-        }
+        };
         this.equippedArmor = {
             name: `None`,
-            hitBarrierBonus: null
+            attackBarrierBonus: null
+        };
+    }; 
+
+        // Level up increases Hero health randomly by 1 - 6
+        // Level up also increases skill by one point
+        levelUp(){
+            this.maxHealth += Math.floor(Math.random() * 6) + 1;
+            this.skills[skill] + 1;
         };
 
-        
-    };
+        // Equip new weapon and armor
+
+        equipNewWeapon(newWeapon){
+            this.equippedWeapon = newWeapon;
+        };
+
+        equipNewArmor(newArmor){
+            this.equippedArmor = newArmor;
+            if(this.equippedArmor.attackBarrierBonus){
+                this.barriers.attack -= this.equippedArmor.attackBarrierBonus;
+            }
+            if(newArmor.attackBarrierBonus){
+                this.barriers.attack = += newArmor.attackBarrierBonus;
+            }
+        };
+
+        // Character returns to max health or is revived
+        rest(){
+            this.currentHealth = maxHealth;
+            this.isIncapacitated = false;
+        };
 };
 
 // -- Skills for character class and race -- //
