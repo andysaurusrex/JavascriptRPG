@@ -82,7 +82,7 @@ class Hero extends BaseCharacter {
                 this.barriers.attack -= this.equippedArmor.attackBarrierBonus;
             }
             if(newArmor.attackBarrierBonus){
-                this.barriers.attack = += newArmor.attackBarrierBonus;
+                this.barriers.attack += newArmor.attackBarrierBonus;
             }
         };
 
